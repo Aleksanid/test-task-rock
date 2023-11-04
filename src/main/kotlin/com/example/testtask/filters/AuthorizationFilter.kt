@@ -33,9 +33,8 @@ class AuthorizationFilter(val securityConfiguration: SecurityConfiguration) : Fi
         if (signHeader != null && validateSignature(content, signHeader)) {
             chain.doFilter(httpRequest, response)
         } else {
-            chain.doFilter(httpRequest, response)
-            //logger.error("Request has failed sign check")
-            //httpResponse.status = HttpServletResponse.SC_UNAUTHORIZED
+            logger.error("Request has failed sign check")
+            httpResponse.status = HttpServletResponse.SC_UNAUTHORIZED
         }
     }
 
