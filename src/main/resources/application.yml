@@ -1,0 +1,14 @@
+security:
+  sign-secret: ${SECRET_STRING:default-secret}
+  header-name: Sign
+  algorithm: MD5
+
+spring:
+  jpa:
+    hibernate:
+      ddl-update: none
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_SCHEMA:TestTask}
+    username: ${MYSQL_USERNAME:root}
+    password: ${MYSQL_PASSWORD:password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
